@@ -22,15 +22,15 @@ function App() {
     setFilter(e.target.value);
   };
 
-  const addContact = (name, number) => {
-    const contact = {
-      id: uuid(),
-      name: name,
-      number: number,
-    };
+  // const addContact = (name, number) => {
+  //   const contact = {
+  //     id: uuid(),
+  //     name: name,
+  //     number: number,
+  //   };
 
-    setContacts([contact, ...contacts]);
-  };
+  //   setContacts([contact, ...contacts]);
+  // };
 
   const deleteContact = e => {
     setContacts(contacts.filter(contact => contact.id !== e.target.id));
@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="container">
       <h2>Phonebook</h2>
-      <ContactForm addContact={addContact} contacts={contacts} />
+      <ContactForm contacts={contacts} />
 
       <h2>Contacts</h2>
       {Boolean(contacts.length) && (
