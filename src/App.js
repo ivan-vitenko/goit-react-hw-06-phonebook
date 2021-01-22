@@ -8,19 +8,19 @@ import ContactList from './components/ContactList/ContactList';
 import './App.css';
 
 function App() {
-  const parseContacts = JSON.parse(localStorage.getItem('contacts'));
-  const initialContacts = parseContacts ? parseContacts : [];
+  // const parseContacts = JSON.parse(localStorage.getItem('contacts'));
+  // const initialContacts = parseContacts ? parseContacts : [];
 
-  const [contacts, setContacts] = useState(initialContacts);
-  const [filter, setFilter] = useState('');
+  // const [contacts, setContacts] = useState(initialContacts);
+  // const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
-  const handleChange = e => {
-    setFilter(e.target.value);
-  };
+  // const handleChange = e => {
+  //   setFilter(e.target.value);
+  // };
 
   // const addContact = (name, number) => {
   //   const contact = {
@@ -32,16 +32,16 @@ function App() {
   //   setContacts([contact, ...contacts]);
   // };
 
-  const deleteContact = e => {
-    setContacts(contacts.filter(contact => contact.id !== e.target.id));
-  };
+  // const deleteContact = e => {
+  //   setContacts(contacts.filter(contact => contact.id !== e.target.id));
+  // };
 
   return (
     <div className="container">
       <h2>Phonebook</h2>
-      <ContactForm contacts={contacts} />
+      <ContactForm />
 
-      <h2>Contacts</h2>
+      {/* <h2>Contacts</h2>
       {Boolean(contacts.length) && (
         <div className="contacts">
           <Filter value={filter} onChange={handleChange} />
@@ -52,7 +52,7 @@ function App() {
             deleteContact={deleteContact}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

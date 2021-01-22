@@ -32,12 +32,12 @@ function ContactForm({ contacts, addContact }) {
   const isDuplicate = () => {
     let isDublicate = false;
 
-    contacts.map(item => {
-      if (item.name.toLowerCase() === name.toLowerCase()) {
-        alert(`${item.name} is already in contacts.`);
-        isDublicate = true;
-      }
-    });
+    // contacts.map(item => {
+    //   if (item.name.toLowerCase() === name.toLowerCase()) {
+    //     alert(`${item.name} is already in contacts.`);
+    //     isDublicate = true;
+    //   }
+    // }  );
 
     return isDublicate;
   };
@@ -80,9 +80,13 @@ function ContactForm({ contacts, addContact }) {
   );
 }
 
+const mapStateToProps = state => ({
+  contacts: state.contacts.contacts,
+});
+
 const mapDispatchToProps = dispatch => ({
-  onSubmit: (name, number) =>
+  addContact: (name, number) =>
     dispatch(contactsActions.addContact(name, number)),
 });
 
-export default connect(null, mapDispatchToProps)(ContactForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

@@ -1,10 +1,15 @@
 import { combineReducers } from 'redux';
 import types from './contacts-types';
 
-const contacts = (state = [], { type, payload }) => {
+const parseContacts = JSON.parse(localStorage.getItem('contacts'));
+const initialContacts = parseContacts ? parseContacts : [];
+
+const contacts = (state = initialContacts, { type, payload }) => {
   switch (type) {
     case types.ADD:
-      return [...state, payload];
+      const newContacts = [...state, payload];
+      localStorage.setItem('contacts', JSON.stringify(newContacts));
+      return newContacts;
 
     default:
       return state;
