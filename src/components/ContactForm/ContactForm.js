@@ -32,12 +32,12 @@ function ContactForm({ contacts, addContact }) {
   const isDuplicate = () => {
     let isDublicate = false;
 
-    // contacts.map(item => {
-    //   if (item.name.toLowerCase() === name.toLowerCase()) {
-    //     alert(`${item.name} is already in contacts.`);
-    //     isDublicate = true;
-    //   }
-    // }  );
+    contacts.map(item => {
+      if (item.name.toLowerCase() === name.toLowerCase()) {
+        alert(`${item.name} is already in contacts.`);
+        isDublicate = true;
+      }
+    });
 
     return isDublicate;
   };

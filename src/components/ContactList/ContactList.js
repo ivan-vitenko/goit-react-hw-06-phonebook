@@ -1,3 +1,5 @@
+import { connect } from 'react-redux';
+import contactsActions from '../../redux/contacts/contacts-actions';
 import s from './ContactList.module.css';
 
 const ContactList = ({ contacts, filter, deleteContact }) => (
@@ -16,4 +18,13 @@ const ContactList = ({ contacts, filter, deleteContact }) => (
   </ul>
 );
 
-export default ContactList;
+const mapStateToProps = state => ({
+  contacts: state.contacts.contacts,
+  filter: state.contacts.filter,
+});
+
+const mapDispatchToProps = dispatch => ({
+  deleteContact: e => dispatch(contactsActions.deleteContact(e)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
